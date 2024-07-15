@@ -6,11 +6,11 @@ layout: page
 
 <main>
   <div class="cluster cluster--index">
-    {% for question in page.sections%}
+    {% for question in site.solutions%}
     <section class="home">
       <header class="home__header">
         <a href="{{question.url}}" aria-label="Signal 00. Start here">
-          {{question.count}}.{{question.title}}
+          {{question.pg_count}}.{{question.title}}
         </a>
       </header>
     </section>
