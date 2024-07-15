@@ -102,6 +102,13 @@ author:
 
 # Footer Links
 footer_links:
-  - title: Feed
-    url: atom.xml
-    icon: fas fa-rss-square
+  - title: Book
+    url: /book
+  - title: Thoughts
+    url: /thoughts
+  - title: Jobs
+    url: /jobs
+  - title: Updates
+    url: /updates
+  - title: Podcast
+    url: /podcast

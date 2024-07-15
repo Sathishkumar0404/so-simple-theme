@@ -4,14 +4,47 @@ layout: page
 
 {{ content }}
 
-<div class="entries-{{ page.entries_layout | default: 'list' }}">
-  {%- if site.plugins contains 'jekyll-paginate' and page.paginate or site.gems contains 'jekyll-paginate' and page.paginate -%}
-    {%- comment -%}
-      Add paginator.posts loop if jekyll-paginate plugin is enabled
-      and page.paginate == true
-    {%- endcomment -%}
-    {% include posts-paginated.html %}
-  {%- else -%}
-    {% include posts-limit.html %}
-  {%- endif -%}
-</div>
+<main>
+  <div class="cluster cluster--index">
+    <section class="signal">
+      <header class="signal__header">
+        <a href="">{{ page.title }}</a>
+      </header>
+    </section>
+    {% for question in page.sections%}
+    <section class="signal">
+      <header class="signal__header">
+        test
+        <a href="{{question.url}}" aria-label="Signal 00. Start here">
+          <dl>
+            <dt>{{question.count}}</dt>
+            <dd>{{question.title}}</dd>
+          </dl>
+        </a>
+      </header>
+    </section>
+    {% endfor %}
+
+    <section class="signal">
+      <header class="signal__header">
+        <a href="/36" aria-label="Signal 36. Context > consistency">
+          <dl>
+            <dt>36.</dt>
+            <dd>Context &gt; consistency</dd>
+          </dl>
+        </a>
+      </header>
+    </section>
+
+    <section class="signal">
+      <header class="signal__header">
+        <a href="/37" aria-label="Signal 37. What’s in a name?">
+          <dl>
+            <dt>37.</dt>
+            <dd>What’s in a name?</dd>
+          </dl>
+        </a>
+      </header>
+    </section>
+  </div>
+</main>

@@ -69,7 +69,6 @@ blockquote {
 .site-nav {
   ul {
     color: $nav-color;
-    background-color: $nav-background-color;
   }
 
   a {
@@ -231,6 +230,9 @@ td {
   background-color: $base-color;
 }
 
+.cluster{
+  padding-top: 3em;
+}
 /* ==========================================================================
    BUTTONS
    ========================================================================== */
