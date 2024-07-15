@@ -6,45 +6,35 @@ layout: page
 
 <main>
   <div class="cluster cluster--index">
-    <section class="signal">
-      <header class="signal__header">
-        <a href="">{{ page.title }}</a>
-      </header>
-    </section>
     {% for question in page.sections%}
-    <section class="signal">
-      <header class="signal__header">
-        test
+    <section class="home">
+      <header class="home__header">
         <a href="{{question.url}}" aria-label="Signal 00. Start here">
-          <dl>
-            <dt>{{question.count}}</dt>
-            <dd>{{question.title}}</dd>
-          </dl>
+          {{question.count}}.{{question.title}}
         </a>
       </header>
     </section>
     {% endfor %}
-
-    <section class="signal">
-      <header class="signal__header">
-        <a href="/36" aria-label="Signal 36. Context > consistency">
-          <dl>
-            <dt>36.</dt>
-            <dd>Context &gt; consistency</dd>
-          </dl>
-        </a>
-      </header>
-    </section>
-
-    <section class="signal">
-      <header class="signal__header">
-        <a href="/37" aria-label="Signal 37. What’s in a name?">
-          <dl>
-            <dt>37.</dt>
-            <dd>What’s in a name?</dd>
-          </dl>
-        </a>
-      </header>
-    </section>
   </div>
 </main>
+
+<!-- for styling -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const sections = document.querySelectorAll('.cluster--index .home');
+
+    sections.forEach(section => {
+        section.addEventListener('mouseover', () => {
+            sections.forEach(s => {
+                if (s !== section) {
+                    s.classList.add('dimmed');
+                }
+            });
+        });
+
+        section.addEventListener('mouseout', () => {
+            sections.forEach(s => s.classList.remove('dimmed'));
+        });
+    });
+});
+</script>

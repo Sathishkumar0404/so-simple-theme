@@ -1,0 +1,43 @@
+---
+layout: page
+---
+
+{{content}}
+
+<div class="solution_container">
+  {% for solution in site.solutions%}
+  <section class="home">
+    <header class="solution__header">
+      <a class="{%if solution.permalink == page.url%} active {% endif %}" href="{{solution.permalink}}"  data-url="{{ solution.permalink }}" aria-label="{{solution.title}}">
+        {{solution.pg_count}}.<span
+          class="{%if solution.permalink == page.url%} title_active {% endif %}solution_title"
+          >{{solution.title}}</span
+        >
+      </a>
+      {% if solution.permalink == page.url %}
+      <div class="description"><p>{{solution.description}}</p></div>
+      {% endif %}
+    </header>
+  </section>
+  {% endfor %}
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const sections = document.querySelectorAll('.solution_container .home');
+    const currentPath = window.location.pathname;
+
+    sections.forEach(section => {
+        const link = section.querySelector('a');
+        if (link.getAttribute('data-url') === currentPath) {
+            link.classList.add('active');
+            const rect = link.getBoundingClientRect();
+            const scrollMarginTop = rect.top - 120; // Adjust 48 based on your header/footer height
+
+            // Scroll to the active element with calculated margin
+            window.scrollBy({ top: scrollMarginTop, behavior: 'smooth' });
+        }
+    });
+});
+
+</script>
